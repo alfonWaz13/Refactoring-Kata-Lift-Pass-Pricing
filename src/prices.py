@@ -3,12 +3,12 @@ import math
 from flask import Flask
 from flask import request
 from datetime import datetime
-from db import create_lift_pass_db_connection
+from src.db import create_lift_pass_db_connection
 
 app = Flask("lift-pass-pricing")
 
 connection_options = {
-    "host": 'localhost',
+    "host": 'mariadb',
     "user": 'root',
     "database": 'lift_pass',
     "password": 'mysql'}

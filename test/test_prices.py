@@ -5,7 +5,7 @@ import requests
 from datetime import datetime
 import time
 
-from prices import app
+from src.prices import app
 
 TEST_PORT = 3006
 
@@ -37,4 +37,4 @@ def lift_pass_pricing_app():
 
 def test_something(lift_pass_pricing_app):
     response = requests.get(lift_pass_pricing_app + "/prices", params={'type': '1jour'})
-    assert response.json() == {'putSomethingHere': 35}
+    assert response.json() == {'cost': 35}
