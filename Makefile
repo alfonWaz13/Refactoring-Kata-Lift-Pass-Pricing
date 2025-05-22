@@ -18,3 +18,8 @@ build: ## Build the chatcommands Docker image
 test: ## Run tests
 	docker compose run --rm lift uv run pytest ./test -ra
 
+.PHONY: test-coverage
+test-coverage:
+	docker compose run --rm lift uv run coverage run --branch -m pytest test
+	docker compose run --rm lift uv run coverage html
+	@open "${PWD}/htmlcov/index.html"
